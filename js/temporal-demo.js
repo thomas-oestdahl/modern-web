@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const today = Temporal.Now.plainDateISO();
   const inThreeMonths = today.add({ months: 3 });
-  const daysUntil = today.until(inThreeMonths).days;
+  const daysUntil = today.until(inThreeMonths, { largestUnit: 'day' }).days;
 
   output.textContent =
     `Today is ${today.toString()}. Three months from now is ` +

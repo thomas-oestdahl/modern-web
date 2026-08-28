@@ -268,9 +268,7 @@ main {
     align-items: center;
     justify-content: space-between;
   }
-}
 
-@container demo-card (min-width: 420px) {
   .demo-card__badge {
     align-self: center;
   }
