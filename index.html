@@ -1,70 +1,61 @@
 <!doctype html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Modern Web — using the platform instead of dependencies</title>
-  <meta name="description" content="A blog about using modern, built-in web platform features instead of adding extra dependencies to your projects.">
-  <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-  <header class="site-header">
-    <nav class="site-nav">
-      <a class="site-nav__brand" href="index.html">Modern Web</a>
-      <ul class="site-nav__links">
-        <li><a href="index.html">Home</a></li>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Modern Web</title>
+    <meta
+      name="description"
+      content="A blog about using modern, built-in web platform features."
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="site-nav">
+        <a class="site-nav__brand" href="index.html">Modern Web</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="page-intro">
+        <h1>Modern Web</h1>
+        <p>
+          A series of posts about using modern, built-in web platform features —
+          HTML, CSS and JavaScript you already ship — instead of reaching for
+          another dependency.
+        </p>
+      </section>
+
+      <ul class="post-list">
+        <li class="post-card">
+          <h2>
+            <a href="posts/container-queries.html"
+              >Responsive components with CSS container queries</a
+            >
+          </h2>
+          <p class="post-card__meta">CSS</p>
+          <p>
+            Stop shipping a grid framework just to make a component responsive
+            to its container. Container queries let components adapt to the
+            space they're given, not just the viewport.
+          </p>
+          <ul class="tag-list">
+            <li>CSS</li>
+            <li>Container queries</li>
+            <li>Responsive design</li>
+          </ul>
+        </li>
       </ul>
-    </nav>
-  </header>
+    </main>
 
-  <main>
-    <section class="page-intro">
-      <h1>Modern Web</h1>
-      <p>
-        A series of posts about using modern, built-in web platform features —
-        HTML, CSS and JavaScript you already ship — instead of reaching for
-        another dependency.
-      </p>
-    </section>
-
-    <ul class="post-list">
-      <li class="post-card">
-        <h2><a href="posts/temporal-api-for-dates.html">Handling dates and times with the Temporal API</a></h2>
-        <p class="post-card__meta">JavaScript</p>
+    <footer class="site-footer">
+      <div>
         <p>
-          Skip the date-handling library. The <code>Temporal</code> API gives
-          you immutable, time-zone-aware dates and times built right into the
-          language.
+          Built with plain HTML, CSS and JavaScript. No frameworks, no build
+          step.
         </p>
-        <ul class="tag-list">
-          <li>JavaScript</li>
-          <li>Temporal</li>
-          <li>Dates &amp; time</li>
-        </ul>
-      </li>
-      <li class="post-card">
-        <h2><a href="posts/container-queries.html">Responsive components with CSS container queries</a></h2>
-        <p class="post-card__meta">CSS</p>
-        <p>
-          Stop shipping a grid framework just to make a component responsive
-          to its container. Container queries let components adapt to the
-          space they're given, not just the viewport.
-        </p>
-        <ul class="tag-list">
-          <li>CSS</li>
-          <li>Container queries</li>
-          <li>Responsive design</li>
-        </ul>
-      </li>
-    </ul>
-  </main>
-
-  <footer class="site-footer">
-    <div>
-      <p>Built with plain HTML, CSS and JavaScript. No frameworks, no build step.</p>
-    </div>
-  </footer>
-
-  <script src="js/main.js"></script>
-</body>
+      </div>
+    </footer>
+  </body>
 </html>
