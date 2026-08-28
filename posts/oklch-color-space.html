@@ -34,6 +34,57 @@
       <article class="post">
         <h1>OKLCH — en fargemodell laget for gradienter</h1>
 
+        <section aria-labelledby="demo-oklch__heading" class="demo-oklch">
+          <h2 id="demo-oklch__heading">Hva er OKLCH?</h2>
+          <p>
+            OKLCH er en fargemodell i CSS, som bedre samsvarer med hvordan vi
+            mennesker oppfatter farger. Endringer i tallverdiene matcher hvordan
+            øynene våre tolker endringer i fargene. OKLCH er et akronym for:
+          </p>
+          <ul>
+            <li>
+              <strong>OK (Oklab):</strong> Refererer til Oklab-fargemodellen som
+              OKLCH er basert på.
+            </li>
+            <li>
+              <strong>L (Lightness):</strong>
+              Lyshet. Lyshet på 70% oppleves nøyaktig like lys uansett om fargen
+              er gul, blå eller grå.
+            </li>
+            <li>
+              <strong>C (Chroma):</strong> Fargestyrke. Går fra grålig (0) til
+              maksimalt fargesterk.
+            </li>
+            <li>
+              <strong>H (Hue):</strong> Fargetone. Angis i grader på et
+              fargehjul (0-360).
+            </li>
+          </ul>
+
+          <h3>Hvorfor blir gradienter grå og livløse i RGB og HSL?</h3>
+          <p>
+            Når man lager en gradient mellom to komplementære farger i f.eks.
+            RGB, vil midtpunktet i gradienten være 50% av hver farge. Dette
+            resulterer i en "skitten" grå farge på midten av gradienten.
+          </p>
+
+          <p>
+            I eksempelet nedenfor ser du to gradienter laget med samme farger,
+            men med forskjellig fargemodell. Begge gradientene går fra blå-lilla
+            til en gul farge.
+          </p>
+          <div class="grid">
+            <figure>
+              <div class="demo-oklch__gradient--old"></div>
+              <figcaption>RGB</figcaption>
+            </figure>
+            <figure>
+              <div class="demo-oklch__gradient"></div>
+              <figcaption>OKLCH</figcaption>
+            </figure>
+          </div>
+        </section>
+
         <a class="back-link" href="../index.html"
           >&larr; Tilbake til alle innlegg</a
         >

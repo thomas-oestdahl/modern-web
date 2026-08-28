@@ -42,25 +42,25 @@
 @property --post-card-start-1 {
   syntax: "<color>";
   inherits: false;
-  initial-value: oklch(0.92 0.06 -60);
+  initial-value: oklch(0.92 0.08 -60);
 }
 
 @property --post-card-start-2 {
   syntax: "<color>";
   inherits: false;
-  initial-value: oklch(0.92 0.1 60);
+  initial-value: oklch(0.92 0.08 60);
 }
 
 @property --post-card-stop-1 {
   syntax: "<color>";
   inherits: false;
-  initial-value: oklch(0.92 0.1 -90);
+  initial-value: oklch(0.92 0.08 -90);
 }
 
 @property --post-card-stop-2 {
   syntax: "<color>";
   inherits: false;
-  initial-value: oklch(0.92 0.1 -30);
+  initial-value: oklch(0.92 0.08 -30);
 }
 
 * {
@@ -85,6 +85,8 @@ h3,
 h4,
 h5,
 h6 {
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-1);
   font-family: var(--font-heading);
 }
 
@@ -206,6 +208,9 @@ main {
     padding: 0.15rem 0.6rem;
     color: var(--color-text-muted);
     background-color: var(--color-secondary-surface);
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
   }
 }
 
@@ -224,4 +229,54 @@ main {
     margin: 0 auto;
     padding: var(--space-2);
   }
+}
+
+.demo-oklch {
+  figure {
+    margin: 0;
+
+    figcaption {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--color-text-muted);
+    }
+  }
+
+  .demo-oklch__gradient {
+    width: 100%;
+    height: 4rem;
+    border-radius: var(--radius);
+    background: linear-gradient(
+      to right in oklch,
+      oklch(60% 0.2 280),
+      oklch(85% 0.15 87)
+    );
+  }
+
+  .demo-oklch__gradient--old {
+    width: 100%;
+    height: 4rem;
+    border-radius: var(--radius);
+    background: linear-gradient(
+      to right,
+      rgb(110, 105, 243),
+      rgb(248, 198, 71)
+    );
+  }
+}
+
+.flex {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-2);
+}
+
+.grid-2 {
+  display: grid;
+  gap: var(--space-2);
+  grid-template-columns: repeat(2, 1fr);
 }
