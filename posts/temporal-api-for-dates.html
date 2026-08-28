@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Handling dates and times with the Temporal API — Modern Web</title>
+  <meta name="description" content="Use the built-in JavaScript Temporal API for dates and times instead of adding a date-handling library.">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav">
+      <a class="site-nav__brand" href="../index.html">Modern Web</a>
+      <ul class="site-nav__links">
+        <li><a href="../index.html">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <article class="post">
+      <h1>Handling dates and times with the Temporal API</h1>
+      <p class="post-meta">JavaScript &middot; No dependencies required</p>
+
+      <p>
+        For years, working with dates in JavaScript meant reaching for a
+        library such as Moment.js, date-fns or Luxon, because the built-in
+        <code>Date</code> object is mutable, has a confusing API and doesn't
+        understand time zones well. <a href="https://tc39.es/proposal-temporal/docs/">
+        <code>Temporal</code></a> is a new, standards-track API designed to fix
+        exactly that &mdash; and you can use it without adding a single
+        dependency.
+      </p>
+
+      <h2>Why Temporal instead of a library</h2>
+      <ul>
+        <li>Objects are <strong>immutable</strong> &mdash; every operation returns a new instance.</li>
+        <li>Separate types for separate concerns: <code>Temporal.PlainDate</code>, <code>Temporal.PlainTime</code>,
+          <code>Temporal.ZonedDateTime</code>, <code>Temporal.Duration</code>, and more.</li>
+        <li><strong>Time zones and calendars are first-class</strong>, instead of being bolted on.</li>
+        <li>No months-are-zero-indexed surprises, and comparisons are explicit and unambiguous.</li>
+      </ul>
+
+      <h2>Basic usage</h2>
+      <pre><code>// A calendar date, with no time or time zone attached.
+const date = Temporal.PlainDate.from('2024-03-01');
+
+// Add a duration and get a brand-new PlainDate back.
+const nextMonth = date.add({ months: 1 });
+
+// Time-zone aware "now", ready for formatting or comparisons.
+const now = Temporal.Now.zonedDateTimeISO();
+
+console.log(date.toString());      // 2024-03-01
+console.log(nextMonth.toString()); // 2024-04-01
+console.log(now.toString());       // e.g. 2024-03-01T12:34:56.789+01:00[Europe/Oslo]
+</code></pre>
+
+      <h2>Comparing two dates</h2>
+      <pre><code>const a = Temporal.PlainDate.from('2024-01-01');
+const b = Temporal.PlainDate.from('2024-06-15');
+
+Temporal.PlainDate.compare(a, b); // -1 (a is before b)
+a.until(b).toString();            // 'P166D' — a Temporal.Duration
+</code></pre>
+
+      <div class="demo">
+        <h2>Live demo</h2>
+        <p>This runs in your browser right now, using only the platform:</p>
+        <p class="demo__output" id="temporal-output">Checking for Temporal support&hellip;</p>
+        <p class="demo__note">
+          Temporal is a newer addition to the platform. If your browser
+          doesn't support it yet, the message above will say so &mdash; the
+          rest of this page still works either way.
+        </p>
+      </div>
+
+      <h2>Learn more</h2>
+      <p>
+        Read the <a href="https://tc39.es/proposal-temporal/docs/">official
+        Temporal documentation</a> and check
+        <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Temporal">MDN</a>
+        for current browser support before relying on it in production.
+      </p>
+
+      <a class="back-link" href="../index.html">&larr; Back to all posts</a>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <p>Built with plain HTML, CSS and JavaScript. No frameworks, no build step.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+  <script src="../js/temporal-demo.js"></script>
+</body>
+</html>
