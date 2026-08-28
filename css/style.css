@@ -14,6 +14,8 @@
   --color-accent: oklch(49.705% 0.24553 302.157);
   --color-secondary: oklch(0.95 0.4 -60);
   --color-border: #dfe2e6;
+  --font-heading: "Space Grotesk", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, sans-serif;
   --max-width: 46rem;
   --radius: 0.5rem;
   --radius-sm: 0.5rem;
@@ -52,13 +54,13 @@
 @property --post-card-stop-1 {
   syntax: "<color>";
   inherits: false;
-  initial-value: oklch(0.92 0.12 -25);
+  initial-value: oklch(0.92 0.1 -90);
 }
 
 @property --post-card-stop-2 {
   syntax: "<color>";
   inherits: false;
-  initial-value: oklch(0.92 0.06 75);
+  initial-value: oklch(0.92 0.1 -30);
 }
 
 * {
@@ -71,15 +73,19 @@ html {
 
 body {
   margin: 0;
-  font-family:
-    system-ui,
-    -apple-system,
-    "Segoe UI",
-    Roboto,
-    sans-serif;
+  font-family: var(--font-body);
   line-height: 1.6;
   color: var(--color-text);
   background-color: var(--color-bg);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-heading);
 }
 
 a {
@@ -156,7 +162,7 @@ main {
   border-top-left-radius: var(--radius-lg);
   padding: var(--space-4);
   background: linear-gradient(
-    135deg in oklch,
+    to bottom right in oklch,
     var(--post-card-start-1),
     var(--post-card-start-2)
   );
