@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Responsive components with CSS container queries — Modern Web</title>
+  <meta name="description" content="Use built-in CSS container queries to build responsive components instead of adding a CSS/grid framework.">
+  <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="site-nav">
+      <a class="site-nav__brand" href="../index.html">Modern Web</a>
+      <ul class="site-nav__links">
+        <li><a href="../index.html">Home</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <article class="post">
+      <h1>Responsive components with CSS container queries</h1>
+      <p class="post-meta">CSS &middot; No dependencies required</p>
+
+      <p>
+        Media queries respond to the size of the <em>viewport</em>. That's
+        fine for page-level layout, but it falls apart for reusable
+        components: a card might live in a wide main column on one page and a
+        narrow sidebar on another. Reaching for a CSS framework's grid system
+        doesn't solve that either &mdash; what you actually want is for the
+        component to respond to the size of <strong>its own container</strong>.
+        That's exactly what
+        <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries">CSS
+        container queries</a> do, with no library required.
+      </p>
+
+      <h2>How it works</h2>
+      <ol>
+        <li>Mark an element as a query container with <code>container-type</code>.</li>
+        <li>Give it a name with <code>container-name</code> (optional, but keeps queries scoped).</li>
+        <li>Write an <code>@container</code> rule targeting that name.</li>
+      </ol>
+
+      <pre><code>.resizable-container {
+  container-type: inline-size;
+  container-name: demo-card;
+}
+
+/* Mobile-first: this is the default, narrow layout. */
+.demo-card {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Applies once the *container* — not the viewport — is at least 420px wide. */
+@container demo-card (min-width: 420px) {
+  .demo-card {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+}
+</code></pre>
+
+      <div class="demo">
+        <h2>Live demo</h2>
+        <p>
+          Drag the bottom-right corner of the box below to resize it and
+          watch the layout switch from stacked to side-by-side once the
+          <em>container</em> crosses 420px &mdash; independent of your
+          browser window size.
+        </p>
+        <div class="resizable-container">
+          <div class="demo-card">
+            <span class="demo-card__badge">New</span>
+            <div>
+              <strong>Container queries</strong>
+              <p>This card rearranges itself based on the space it's given.</p>
+            </div>
+          </div>
+        </div>
+        <p class="demo__note">
+          No JavaScript, no ResizeObserver polyfill, no framework grid system
+          &mdash; just CSS.
+        </p>
+      </div>
+
+      <h2>Learn more</h2>
+      <p>
+        See <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_containment/Container_queries">MDN's
+        container queries guide</a> for the full syntax, including container
+        query length units (<code>cqw</code>, <code>cqh</code>, etc.) and
+        style queries.
+      </p>
+
+      <a class="back-link" href="../index.html">&larr; Back to all posts</a>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div>
+      <p>Built with plain HTML, CSS and JavaScript. No frameworks, no build step.</p>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+</body>
+</html>
